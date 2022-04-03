@@ -1,5 +1,7 @@
 package com.patrickshobby;
 
+import java.util.Locale;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,16 +12,27 @@ public class Main {
         System.out.println("Problem 1 Phrase Reverse : " + phraseToReverse + " is reversed to " + phraseReversedResult);
 
         //find the word
-        String stringContainingWord = "I love Java";
+        String phrase = "I love Java";
         String findWord = "java";
+        int count = wordCount(phrase, findWord);
+        System.out.println("The number of times " + findWord + " appears in " + phrase + " is " + count);
+
+        
 
 
+    }
 
+    private static int wordCount(String phrase, String findWord) {
+        int wordCount = 0;
 
-
-
-
-	// write your code here
+        String[] wordsFromPhrase = phrase.split(" ");
+        for (int i = 0; i<wordsFromPhrase.length; i++) {
+            String lowerCaseWord = wordsFromPhrase[i].toLowerCase();
+            if (wordsFromPhrase[i].equals(lowerCaseWord)) {
+                wordCount++;
+            }
+        }
+        return wordCount;
     }
 
     private static String reversePhrase(String phraseToReverse){
